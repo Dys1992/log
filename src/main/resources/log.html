@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/jquery.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/vue-resource.js"></script>
+<script src="static/js/log-list.js"></script>
+<body>
+<div class="container" id="list">
+    <div class="content">
+        <div>
+            <input class="form-control" v-model="logForm.deviceId" name="deviceId"/>
+        </div>
+
+        <label>channel</label>
+        <div>
+            <input class="form-control" v-model="logForm.channel" name="channel"/>
+        </div>
+
+        <label>beginTime</label>
+        <div>
+            <input class="form-control" v-model="logForm.beginTime" name="beginTime"/>
+        </div>
+
+        <label>endTime</label>
+        <div>
+            <input class="form-control" v-model="logForm.endTime" name="endTime"/>
+        </div>
+
+        <input type="button" @click="search" value="查询">
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>id</td>
+                <td>设备号</td>
+                <td>渠道</td>
+                <td>日志内容呢</td>
+            </tr>
+            <tr v-cloak v-for="(item, index) of resultList">
+                <td>{{index+1}}</td>
+                <td>{{item.deviceId}}</td>
+                <td>{{item.channel}}</td>
+                <td>{{item.logInfo}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
