@@ -1,12 +1,12 @@
-package com.ymm.info.logplatform;
+package com.ymm.info.logplatform.controller;
 
+import com.ymm.info.logplatform.service.LogService;
 import com.ymm.info.logplatform.entity.LogEntity;
 import com.ymm.info.logplatform.entity.LogFindEntity;
 import com.ymm.info.logplatform.entity.ResponseEntity;
 import com.ymm.info.logplatform.enums.ResponseEnum;
 import com.ymm.info.logplatform.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -19,11 +19,6 @@ import org.springframework.web.bind.annotation.*;
 public class LogController {
     @Autowired
     private LogService logService;
-
-    @RequestMapping("")
-    public String index(){
-        return "123";
-    }
 
     @RequestMapping("/submitlog")
     public ResponseEntity submitLog(@RequestBody LogEntity logEntity){

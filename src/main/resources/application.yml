@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   data:
     mongodb:
@@ -7,3 +10,25 @@ spring:
       database: ymmlog
       username: root
       password: Passw0rd
+  thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+      mode: html5
+      encoding: UTF-8
+      servlet:
+        content-type: text/html
+      cache: false
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/bootstrap3/,classpath:/js/,classpath:/support/
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.ymm.casemanage.model
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql

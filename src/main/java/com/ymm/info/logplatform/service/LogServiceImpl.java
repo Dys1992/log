@@ -1,6 +1,5 @@
-package com.ymm.info.logplatform;
+package com.ymm.info.logplatform.service;
 
-import com.mongodb.client.result.DeleteResult;
 import com.ymm.info.logplatform.entity.LogEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

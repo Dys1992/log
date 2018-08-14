@@ -27,7 +27,6 @@ $(document).ready(function() {
                     data: JSON.stringify(self.logForm),
                 }).done(function(response) {
                     if (response.code == 0){
-                        debugger;
                         self.resultList = response.result;
                     }
                 });
