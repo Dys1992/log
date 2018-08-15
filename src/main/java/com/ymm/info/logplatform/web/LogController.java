@@ -30,8 +30,6 @@ public class LogController {
         return ResponseUtil.success(1);
     }
 
-
-
     @RequestMapping("/loglist")
     public ResponseVO findLog(@RequestBody QueryFormVO queryFormVO){
         return ResponseUtil.success(logService.list(queryFormVO));
