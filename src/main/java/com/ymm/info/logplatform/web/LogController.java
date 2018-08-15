@@ -5,7 +5,9 @@ import com.ymm.info.logplatform.model.QueryFormVO;
 import com.ymm.info.logplatform.model.ResponseVO;
 import com.ymm.info.logplatform.service.LogService;
 import com.ymm.info.logplatform.enums.ResponseEnum;
+import com.ymm.info.logplatform.utils.DateUtil;
 import com.ymm.info.logplatform.utils.ResponseUtil;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/ymm-info-log/")
 public class LogController {
+    private static final Logger log = Logger.getLogger(LogController.class);
+
     @Autowired
     private LogService logService;
 
@@ -24,6 +28,7 @@ public class LogController {
     public ResponseVO submitLog(@RequestBody LogVO logVO){
         if (logVO == null) {
             // 请求参数为空
+            log.error(DateUtil.getTodayString()+"： 本次请求为空");
             return ResponseUtil.fail(ResponseEnum.DATA_ERROR.getCode(),ResponseEnum.DATA_ERROR.getMsg(),null);
         }
         logService.insert(logVO);
