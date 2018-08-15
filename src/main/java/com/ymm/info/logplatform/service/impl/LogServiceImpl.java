@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,7 +37,6 @@ public class LogServiceImpl implements LogService {
     public List<LogVO> list(QueryFormVO queryFormVO) {
         String startTime = String.valueOf(Objects.requireNonNull(DateUtil.parseDateNewFormat(queryFormVO.getFromDate())).getTime());
         String endTime = String.valueOf(Objects.requireNonNull(DateUtil.parseDateNewFormat(queryFormVO.getToDate())).getTime());
-        log.info("————>本次查询参数: "+queryFormVO);
         Query query = new Query(Criteria.where("timeStamp").gte(startTime).lte(endTime).and("channel").is(queryFormVO.getChannel()).and("deviceId").is(queryFormVO.getDeviceId()));
         return mongoTemplate.find(query, LogVO.class);
     }

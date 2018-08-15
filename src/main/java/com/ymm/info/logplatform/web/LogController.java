@@ -37,6 +37,7 @@ public class LogController {
 
     @RequestMapping("/loglist")
     public ResponseVO findLog(@RequestBody QueryFormVO queryFormVO){
+        log.info("本次查询参数: "+queryFormVO);
         return ResponseUtil.success(logService.list(queryFormVO));
     }
 
