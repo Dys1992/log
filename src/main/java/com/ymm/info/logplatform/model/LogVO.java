@@ -1,4 +1,4 @@
-package com.ymm.info.logplatform.biz.model;
+package com.ymm.info.logplatform.model;
 
 import java.io.Serializable;
 

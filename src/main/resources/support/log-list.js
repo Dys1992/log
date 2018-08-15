@@ -19,6 +19,7 @@ $(document).ready(function() {
 
             /** 查询方法 */
             query : function() {
+                debugger;
                 var self = this;
                 $.ajax({
                     type : 'POST',
@@ -26,6 +27,7 @@ $(document).ready(function() {
                     contentType: 'application/json;charset=UTF-8',
                     data: JSON.stringify(self.logForm),
                 }).done(function(response) {
+                    debugger;
                     if (response.code == 0){
                         self.resultList = response.result;
                     }

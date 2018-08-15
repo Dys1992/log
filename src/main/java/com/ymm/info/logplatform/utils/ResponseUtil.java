@@ -1,7 +1,7 @@
 package com.ymm.info.logplatform.utils;
 
 
-import com.ymm.info.logplatform.entity.ResponseEntity;
+import com.ymm.info.logplatform.model.ResponseVO;
 import com.ymm.info.logplatform.enums.ResponseEnum;
 
 /**
@@ -10,19 +10,19 @@ import com.ymm.info.logplatform.enums.ResponseEnum;
  */
 public class ResponseUtil {
 
-    public static ResponseEntity success(Object obj){
-        ResponseEntity responseEntity = new ResponseEntity();
-         responseEntity.setCode(ResponseEnum.SUCCESS.getCode());
-         responseEntity.setMsg(ResponseEnum.SUCCESS.getMsg());
-         responseEntity.setResult(obj);
-         return responseEntity;
+    public static ResponseVO success(Object obj){
+        ResponseVO responseVO = new ResponseVO();
+         responseVO.setCode(ResponseEnum.SUCCESS.getCode());
+         responseVO.setMsg(ResponseEnum.SUCCESS.getMsg());
+         responseVO.setResult(obj);
+         return responseVO;
     }
 
-    public static ResponseEntity fail(int code , String msg , Object obj){
-        ResponseEntity responseEntity = new ResponseEntity();
-        responseEntity.setCode(code);
-        responseEntity.setMsg(msg);
-        responseEntity.setResult(obj);
-        return responseEntity;
+    public static ResponseVO fail(int code , String msg , Object obj){
+        ResponseVO responseVO = new ResponseVO();
+        responseVO.setCode(code);
+        responseVO.setMsg(msg);
+        responseVO.setResult(obj);
+        return responseVO;
     }
 }

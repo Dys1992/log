@@ -1,4 +1,4 @@
-package com.ymm.info.logplatform.commom.util;
+package com.ymm.info.logplatform.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

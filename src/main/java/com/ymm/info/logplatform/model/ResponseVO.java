@@ -1,10 +1,10 @@
-package com.ymm.info.logplatform.entity;
+package com.ymm.info.logplatform.model;
 
 /**
  * @author fanyu9488
- * @version Id: ResponseEntity, v 0.1 2018/8/9 16:58 fanyu9488 Exp $
+ * @version Id: ResponseVO, v 0.1 2018/8/9 16:58 fanyu9488 Exp $
  */
-public class ResponseEntity<T> {
+public class ResponseVO<T> {
 
     private int code;
     private String msg;
