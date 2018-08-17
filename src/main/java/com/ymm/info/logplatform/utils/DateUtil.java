@@ -353,4 +353,13 @@ public class DateUtil {
         }
         return null;
     }
+
+
+
+    /***/
+    public static String getDate(long timeStamp,String parrent){
+        DateFormat dt = getNewDateFormat(parrent);
+        return dt.format(new Date(timeStamp));
+    }
+
 }
