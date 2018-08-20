@@ -20,6 +20,9 @@ import java.text.ParseException;
 @RequestMapping(value = "/tools")
 public class ToolsController {
 
+    /**
+     * 获取当前时间的时间戳
+     * */
     @RequestMapping(value = "/nowTimeStamp/{mode}")
     public ResponseVO getNowTimeStamp(@PathVariable("mode") int mode){
         if (mode==1){
@@ -27,12 +30,14 @@ public class ToolsController {
         }
         else if(mode==2){
             return ResponseUtil.success(String.valueOf(System.currentTimeMillis() / 1000));
-
         }
         return ResponseUtil.fail(ResponseEnum.DATA_ERROR.getCode(),
                 ResponseEnum.DATA_ERROR.getMsg(),null);
     }
 
+    /**
+     * 时间戳转日期
+     * */
     @RequestMapping(value = "/timeStamp",method = RequestMethod.POST)
     public ResponseVO getDateByTimeStamp(@RequestBody TimeStampVO timeStampVO){
         long time = timeStampVO.getTimeStamp();
@@ -43,12 +48,14 @@ public class ToolsController {
         else if (String.valueOf(time).length()==10){
             return ResponseUtil.success(DateUtil.getDate(time*1000L,parrent));
         }
-
         return ResponseUtil.fail(ResponseEnum.DATA_ERROR.getCode(),
                 ResponseEnum.DATA_ERROR.getMsg(),null);
     }
 
 
+    /**
+     * 日期转时间戳
+     * */
     @RequestMapping(value = "/date",method = RequestMethod.POST)
     public ResponseVO getTimeStampByDate(@RequestBody DateConvertTimeStampVO dateConvertTimeStampVO) throws ParseException {
         String date = dateConvertTimeStampVO.getDate();
@@ -62,7 +69,6 @@ public class ToolsController {
         }
         return ResponseUtil.fail(ResponseEnum.DATA_ERROR.getCode(),
                 ResponseEnum.DATA_ERROR.getMsg(),null);
-
     }
 
 }
