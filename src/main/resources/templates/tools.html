@@ -3,21 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="icon" href="../static/ico/favicon.ico">"
+    <link rel="icon" href="../static/ico/favicon.ico">
 </head>
 <script src="../js/vue.min.js"></script>
 <script src="../js/jquery.min.js"></script>
 <script src="../js/vue-resource.js"></script>
-<script src="../support/tools.js"></script>
 <body>
 
 <div id="select_div">
     <p>{{ message }}</p>
-    <select v-on:change="indexSelect" v-model="selected">
-        <option v-for="item in items" v-bind:value="{{item.value}}}">{{item.text}}</option>
+    <input class="text" v-model="timeStamp.time" name="time">
+    <select v-model="seletimeStamp.mode">
+        <option v-for="item of items" value="{{item.value}}}">{{item.text}}</option>
     </select>
-    <input type="button" @click="nowTimeStamp" value="查询">
+    <input type="button" placeholder="北京时间" @click(timestamp)>
 </div>
 
+
+<script>
+   var timeStamp = new Vue({
+       el : '#select_div',
+       data : {
+           items:[
+               {text:"秒",value:"1"},
+               {text:"毫秒",value:"2"},
+           ],
+           message: '123',
+           seletimeStamp: {},
+           methods:{
+
+           }
+       }
+   })
+</script>
 </body>
+
 </html>

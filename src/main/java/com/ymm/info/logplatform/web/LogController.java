@@ -11,6 +11,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+
 /**
  * @author fanyu9488
  * @version Id: LogController, v 0.1 2018/8/9 19:33 fanyu9488 Exp $
@@ -24,10 +26,9 @@ public class LogController {
     @Autowired
     private LogService logService;
 
-    @RequestMapping("/submitlog")
+    @RequestMapping(value = "/submitlog",method = RequestMethod.POST)
     public ResponseVO submitLog(@RequestBody LogVO logVO){
         if (logVO == null) {
-            // 请求参数为空
             log.error(DateUtil.getTodayString()+"： 本次请求为空");
             return ResponseUtil.fail(ResponseEnum.DATA_ERROR.getCode(),ResponseEnum.DATA_ERROR.getMsg(),null);
         }
@@ -35,10 +36,15 @@ public class LogController {
         return ResponseUtil.success(1);
     }
 
-    @RequestMapping("/loglist")
-    public ResponseVO findLog(@RequestBody QueryFormVO queryFormVO){
-        log.info("本次查询参数: "+queryFormVO);
-        return ResponseUtil.success(logService.list(queryFormVO));
+    @RequestMapping(value = "/query",method = RequestMethod.POST)
+    public ResponseVO findLog(@RequestBody QueryFormVO pageVO) throws ParseException {
+        return ResponseUtil.success(logService.list(pageVO));
+    }
+
+
+    @RequestMapping("/all")
+    public ResponseVO findAll(){
+        return ResponseUtil.success(logService.all());
     }
 
 

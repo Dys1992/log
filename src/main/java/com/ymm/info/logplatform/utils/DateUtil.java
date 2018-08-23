@@ -362,4 +362,14 @@ public class DateUtil {
         return dt.format(new Date(timeStamp));
     }
 
+    public static String getTimeStamp(String sDate) throws ParseException {
+        DateFormat dt = getNewDateFormat(newFormat);
+        return String.valueOf(dt.parse(sDate).getTime());
+    }
+
+
+    public static void main(String[] args) throws ParseException {
+        System.out.println(getTimeStamp("2018-10-08 12:00:00"));
+    }
+
 }

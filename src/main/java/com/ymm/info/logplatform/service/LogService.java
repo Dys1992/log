@@ -3,8 +3,10 @@ package com.ymm.info.logplatform.service;
 
 
 import com.ymm.info.logplatform.model.LogVO;
+import com.ymm.info.logplatform.model.PageVO;
 import com.ymm.info.logplatform.model.QueryFormVO;
 
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -27,5 +29,7 @@ public interface LogService {
      * @param queryFormVO
      * @return
      */
-    List<LogVO> list(QueryFormVO queryFormVO);
+    PageVO<LogVO> list(QueryFormVO queryFormVO) throws ParseException;
+
+    List<LogVO> all();
 }
